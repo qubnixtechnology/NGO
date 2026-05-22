@@ -7,6 +7,12 @@ import {
   Network, MessageSquare, Handshake, CheckCircle, Search
 } from 'lucide-react';
 
+// Banner Image Home Page
+import bannerimg1 from '../assets/image/HomeBanner/HomeBanner1.jpeg';
+import bannerimg2 from '../assets/image/HomeBanner/HomeBanner4.jpeg';
+import bannerimg3 from '../assets/image/HomeBanner/HomeBanner3.jpeg';
+
+
 // Import local images
 import slide1Img from '../assets/image/WebSite Photos/1.jpeg';
 import slide2Img from '../assets/image/WebSite Photos/6.jpeg';
@@ -57,7 +63,7 @@ export default function Home() {
     {
       title: "Empowering Communities Through Research & Development",
       subtitle: "Promoting inclusive and sustainable development through evidence-based interventions, research, and community participation.",
-      image: slide1Img,
+      image: bannerimg1,
       buttons: [
         { text: "Donate Now", path: "/donate", primary: true },
         { text: "Join Us", path: "/volunteer", primary: false }
@@ -66,7 +72,7 @@ export default function Home() {
     {
       title: "Supporting Mental Health & Disaster Recovery",
       subtitle: "Providing psychological support, rehabilitation services, and resilience-building programmes for vulnerable communities.",
-      image: slide2Img,
+      image: bannerimg2,
       buttons: [
         { text: "Support a Cause", path: "/donate", primary: true },
         { text: "Learn More", path: "/about", primary: false }
@@ -75,7 +81,7 @@ export default function Home() {
     {
       title: "Building Sustainable Livelihood Opportunities",
       subtitle: "Strengthening livelihoods, entrepreneurship, and skill development for marginalized communities across India.",
-      image: slide3Img,
+      image: bannerimg3,
       buttons: [
         { text: "Explore Projects", path: "/projects", primary: true },
         { text: "Become a Volunteer", path: "/volunteer", primary: false }
@@ -137,7 +143,7 @@ export default function Home() {
                     onClick={() => navigate(btn.path)}
                     className={`${btn.primary 
                       ? 'bg-blue-600 hover:bg-blue-700 text-white border border-blue-600 hover:border-blue-700' 
-                      : 'bg-white/20 backdrop-blur-sm border-2 border-white hover:bg-white hover:text-blue-900 text-white'} 
+                      : 'bg-white/20 backdrop-blur-sm border-2 border-white hover:bg-white hover:!text-blue-900 text-white'} 
                       px-8 py-4 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 flex items-center gap-2`}
                   >
                     {btn.text} {btn.primary && <ArrowRight className="w-5 h-5" />}
@@ -365,16 +371,16 @@ export default function Home() {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
                 onClick={() => navigate('/what-we-do')}
-                className="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer"
+                className="relative overflow-hidden rounded-2xl shadow-lg group cursor-pointer flex flex-col min-h-[250px]"
               >
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.color} opacity-90 transition-opacity group-hover:opacity-100`}></div>
-                <div className="relative p-8 h-full flex flex-col justify-between min-h-[250px]">
+                <div className="relative p-8 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-2xl font-bold text-white mb-4 transform group-hover:translate-x-2 transition-transform duration-300">{service.title}</h3>
                     <p className="text-white/90 leading-relaxed text-lg">{service.desc}</p>
                   </div>
-                  <div className="mt-6 flex items-center text-white font-medium opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                    Learn More <ArrowRight className="w-5 h-5 ml-2" />
+                  <div className="mt-6 flex items-center text-white/90 font-semibold transition-all duration-300 group-hover:text-white">
+                    Learn More <ArrowRight className="w-5 h-5 ml-2 transform group-hover:translate-x-1.5 transition-transform duration-300" />
                   </div>
                 </div>
               </motion.div>
@@ -405,7 +411,7 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:bg-blue-600 hover:border-blue-600 cursor-pointer transition-all duration-300 border border-gray-100 h-full flex flex-col group"
+                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:!bg-blue-600 hover:!border-blue-600 cursor-pointer transition-all duration-300 border border-gray-100 h-full flex flex-col group"
               >
                 <div className="text-blue-600 mb-6 group-hover:text-white group-hover:scale-110 transform transition-all duration-300 origin-left">
                   {React.cloneElement(approach.icon, { size: 48 })}

@@ -108,12 +108,12 @@ export default function JoinUsPage() {
     <div className="min-h-screen bg-gray-50 font-poppins text-gray-800">
       
       {/* 1. Hero Section */}
-      <section className="relative h-[80vh] min-h-[650px] flex items-center justify-center overflow-hidden pt-24">
+      <section className="relative min-h-[550px] md:h-[80vh] md:min-h-[650px] flex flex-col justify-start md:justify-center items-center overflow-hidden pt-28 pb-12 md:pt-24 md:pb-0">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-indigo-900/80 to-blue-900/90 z-10"></div>
           <img src={heroImg} alt="Join Engross Foundation" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-16">
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-6 md:mt-16">
           <div className="flex items-center justify-center space-x-2 text-gray-300 mb-6 text-sm font-medium">
             <span className="hover:text-white cursor-pointer transition-colors" onClick={() => navigate('/')}>Home</span>
             <ChevronRight className="w-4 h-4" />
@@ -138,7 +138,7 @@ export default function JoinUsPage() {
             <button onClick={() => handleApplyClick('')} className="bg-blue-600 hover:bg-blue-700 text-white px-10 py-4 rounded-full font-bold text-lg transition-transform transform hover:scale-105 shadow-xl flex items-center gap-2">
               Apply Now <ArrowRight className="w-5 h-5" />
             </button>
-            <button onClick={() => handleApplyClick('Volunteer')} className="bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-blue-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl">
+            <button onClick={() => handleApplyClick('Volunteer')} className="bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:!text-blue-900 px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 shadow-xl">
               Become a Volunteer
             </button>
           </motion.div>

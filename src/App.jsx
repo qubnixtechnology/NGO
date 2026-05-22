@@ -10,17 +10,30 @@ import certificate from './pages/Certificategen'
 import WhatWeDo from './pages/WhatWeDo';
 import Project from './pages/Project';
 import Volunteer from './pages/Volunteer';
+import Leaders from './pages/Leaders';
 import React, { useEffect } from 'react';
 import Gallery from './pages/Gallery';
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import FloatingWhatsApp from './components/FloatingWhatsApp';
 
 function ScrollToTop() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+    if (hash) {
+      // Find the element matching the hash (e.g. #who-we-are -> who-we-are)
+      const targetId = hash.replace('#', '');
+      const timer = setTimeout(() => {
+        const element = document.getElementById(targetId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 150);
+      return () => clearTimeout(timer);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'instant' });
+    }
+  }, [pathname, hash]);
 
   return null;
 }
@@ -42,6 +55,7 @@ function App() {
         <Route path="/privacy" element={<Privacy />} />
         <Route path="/terms" element={<Terms />} />
         <Route path="/certificate" element={<certificate />} />
+        <Route path="/leaders" element={<Leaders />} />
       </Routes>
       <Footer />
       <FloatingWhatsApp />

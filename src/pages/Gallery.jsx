@@ -46,48 +46,36 @@ const AnimatedCounter = ({ end, duration = 2, suffix = '' }) => {
   return <span ref={nodeRef}>{count}{suffix}</span>;
 };
 
-// Gallery Data
 const galleryCategories = [
-  "All", 
-  "Research & Surveys", 
-  "Training Programmes", 
-  "Community Outreach", 
-  "Mental Health", 
-  "Disaster Relief", 
-  "Awareness Campaigns", 
-  "Workshops", 
-  "Field Visits"
+  "Serve & Activities",
+  "Welfare Activities"
 ];
 
-const websitePhotosModules = import.meta.glob('../assets/image/WebSite Photos/*.{jpeg,jpg,png}', { eager: true });
-const projectPhotosModules = import.meta.glob('../assets/image/WebSite Photos/Project Photos/*.{jpeg,jpg,png}', { eager: true });
-const welfarePhotosModules = import.meta.glob('../assets/image/WebSite Photos/wellfare activity/*.{jpeg,jpg,png}', { eager: true });
+const projectPhotosModules = import.meta.glob('../assets/image/WebSite Photos/Project Photos/*.{jpeg,jpg,png,JPEG,JPG,PNG}', { eager: true });
+const welfarePhotosModules = import.meta.glob('../assets/image/WebSite Photos/wellfare activity/*.{jpeg,jpg,png,JPEG,JPG,PNG}', { eager: true });
 
-const assignRandomCategory = () => {
-  const categories = galleryCategories.filter(c => c !== "All");
-  return categories[Math.floor(Math.random() * categories.length)];
-};
+const projectPhotos = Object.values(projectPhotosModules).map((mod, i) => ({
+  id: `proj-${i}`,
+  src: mod.default || mod,
+  category: "Serve & Activities",
+  title: `Serve & Activities Photo ${i + 1}`
+}));
 
-const allPhotos = [
-  ...Object.values(websitePhotosModules).map((mod, i) => ({
-    id: `web-${i}`, src: mod.default, category: assignRandomCategory(), title: `Community Activity ${i + 1}`
-  })),
-  ...Object.values(projectPhotosModules).map((mod, i) => ({
-    id: `proj-${i}`, src: mod.default, category: i % 2 === 0 ? "Research & Surveys" : "Field Visits", title: `Fieldwork Project ${i + 1}`
-  })),
-  ...Object.values(welfarePhotosModules).map((mod, i) => ({
-    id: `welfare-${i}`, src: mod.default, category: i % 2 === 0 ? "Community Outreach" : "Disaster Relief", title: `Welfare Programme ${i + 1}`
-  }))
-];
+const welfarePhotos = Object.values(welfarePhotosModules).map((mod, i) => ({
+  id: `welfare-${i}`,
+  src: mod.default || mod,
+  category: "Welfare Activities",
+  title: `Welfare Activity Photo ${i + 1}`
+}));
+
+const allPhotos = [...projectPhotos, ...welfarePhotos];
 
 export default function GalleryPage() {
   const navigate = useNavigate();
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Serve & Activities");
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
-  const filteredPhotos = activeCategory === "All" 
-    ? allPhotos 
-    : allPhotos.filter(photo => photo.category === activeCategory);
+  const filteredPhotos = allPhotos.filter(photo => photo.category === activeCategory);
 
   const handleOpenPhoto = (index) => {
     setSelectedPhotoIndex(index);
@@ -113,12 +101,12 @@ export default function GalleryPage() {
     <div className="min-h-screen bg-gray-50 font-poppins text-gray-800">
       
       {/* 1. Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden pt-24">
+      <section className="relative min-h-[500px] md:h-[60vh] md:min-h-[500px] flex flex-col justify-start md:justify-center items-center overflow-hidden pt-28 pb-12 md:pt-24 md:pb-0">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-indigo-900/80 to-blue-900/90 z-10"></div>
           <img src={heroImg} alt="Engross Foundation Gallery" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-6 md:mt-16">
           <div className="flex items-center justify-center space-x-2 text-gray-300 mb-6 text-sm font-medium">
             <span className="hover:text-white cursor-pointer transition-colors" onClick={() => navigate('/')}>Home</span>
             <ChevronRight className="w-4 h-4" />
@@ -140,9 +128,9 @@ export default function GalleryPage() {
       </section>
 
       {/* 2. Introduction Section */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="text-4xl font-bold text-gray-900 mb-6">Our Activities & Impact</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">Our Activities & Impact</h2>
           <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-8"></div>
           <p className="text-xl text-gray-600 leading-relaxed font-light">
             Engross Foundation actively works across research, surveys, awareness campaigns, livelihood programmes, mental health initiatives, training workshops, and community development activities.
@@ -153,10 +141,10 @@ export default function GalleryPage() {
       </section>
 
       {/* 3. Photo Gallery Section */}
-      <section className="py-24 bg-gray-50 border-t border-gray-200">
+      <section className="py-16 md:py-24 bg-gray-50 border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Event & Activity Photos</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Event & Activity Photos</h2>
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
 
@@ -195,6 +183,7 @@ export default function GalleryPage() {
                     <img 
                       src={photo.src} 
                       alt={photo.title} 
+                      loading="lazy"
                       className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-6">
@@ -220,10 +209,10 @@ export default function GalleryPage() {
       </section>
 
       {/* 4. Featured Events Section */}
-      <section className="py-24 bg-white border-t border-gray-200">
+      <section className="py-16 md:py-24 bg-white border-t border-gray-200">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Events</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Events</h2>
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
 
@@ -275,37 +264,44 @@ export default function GalleryPage() {
       </section>
 
       {/* 5. Social Impact Section */}
-      <section className="py-24 bg-gradient-to-br from-blue-900 to-indigo-950 text-white relative overflow-hidden">
+      <section className="pt-28 pb-16 md:py-24 bg-gradient-to-br from-blue-900 to-indigo-950 text-white relative overflow-hidden scroll-mt-28">
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-20"></div>
-        <div className="max-w-7xl mx-auto px-6 relative z-10">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Creating Meaningful Change</h2>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <div className="text-center mb-10 md:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4">Creating Meaningful Change</h2>
             <div className="w-24 h-1.5 bg-emerald-500 mx-auto rounded-full"></div>
           </div>
           
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
             {[
               { num: 50, label: "Projects Executed", suffix: "+" },
               { num: 20, label: "States Covered", suffix: "+" },
               { num: 10000, label: "Survey Participants", suffix: "+" },
               { num: 500, label: "Dedicated Volunteers", suffix: "+" }
-            ].map((stat, i) => (
-              <div key={i} className="text-center p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors">
-                <div className="text-5xl font-extrabold text-emerald-400 mb-3 drop-shadow-md">
-                  <AnimatedCounter end={stat.num} suffix={stat.suffix} />
+            ].map((stat, i) => {
+              const isLong = stat.num.toString().length > 3;
+              return (
+                <div key={i} className="text-center px-1 py-5 sm:p-6 md:p-8 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm hover:bg-white/10 transition-colors min-w-0">
+                  <div className={`font-extrabold text-emerald-400 mb-2 sm:mb-3 drop-shadow-md ${
+                    isLong 
+                      ? 'text-2xl sm:text-3xl md:text-5xl' 
+                      : 'text-3xl sm:text-4xl md:text-5xl'
+                  }`}>
+                    <AnimatedCounter end={stat.num} suffix={stat.suffix} />
+                  </div>
+                  <div className="text-[10px] sm:text-xs md:text-sm font-semibold text-blue-100 tracking-wider uppercase leading-snug px-1">{stat.label}</div>
                 </div>
-                <div className="text-sm font-semibold text-blue-100 tracking-wider uppercase">{stat.label}</div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 6. Testimonial / Media Highlights */}
-      <section className="py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Voices from the Field</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Voices from the Field</h2>
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
           
@@ -360,7 +356,7 @@ export default function GalleryPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/95 p-4 md:p-8"
+            className="fixed inset-0 z-[2000] flex items-center justify-center bg-black/95 p-4 md:p-8"
             onClick={handleClosePhoto}
           >
             {/* Close Button */}

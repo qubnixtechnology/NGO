@@ -11,3 +11,53 @@
     @apply overflow-x-hidden max-w-full w-full m-0 p-0;
   }
 }
+
+/* Reset Bootstrap's default underlines on links globally while preserving Tailwind utility overrides */
+html body a {
+  text-decoration: none;
+}
+html body a:hover {
+  text-decoration: none;
+}
+
+/* Custom scrollbar for mobile navbar menu */
+.mobile-nav-menu {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(59, 130, 246, 0.5) rgba(243, 244, 246, 0.1);
+}
+
+.mobile-nav-menu::-webkit-scrollbar {
+  width: 6px;
+  display: block;
+}
+
+.mobile-nav-menu::-webkit-scrollbar-track {
+  background: rgba(243, 244, 246, 0.1);
+  border-radius: 3px;
+}
+
+.mobile-nav-menu::-webkit-scrollbar-thumb {
+  background-color: rgba(59, 130, 246, 0.4);
+  border-radius: 3px;
+  border: 1px solid rgba(243, 244, 246, 0.1);
+}
+
+.mobile-nav-menu::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(59, 130, 246, 0.6);
+}
+
+/* Custom Navbar Dropdown with Bootstrap specificity override */
+.nav-dropdown {
+  opacity: 0 !important;
+  pointer-events: none !important;
+  visibility: hidden !important;
+  transform: translateX(-50%) translateY(8px) !important;
+  transition: opacity 300ms cubic-bezier(0.4, 0, 0.2, 1), transform 300ms cubic-bezier(0.4, 0, 0.2, 1), visibility 300ms cubic-bezier(0.4, 0, 0.2, 1) !important;
+}
+
+.group:hover .nav-dropdown {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  visibility: visible !important;
+  transform: translateX(-50%) translateY(0) !important;
+}

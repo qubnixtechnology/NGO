@@ -49,12 +49,12 @@ export default function AboutPage() {
     <div className="min-h-screen bg-gray-50 font-poppins text-gray-800">
       
       {/* 1. Hero Section */}
-      <section className="relative h-[70vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[500px] md:h-[70vh] md:min-h-[600px] flex flex-col justify-start md:justify-center items-center overflow-hidden pt-28 pb-12 md:pt-24 md:pb-0">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/80 via-black/60 to-purple-900/80 z-10"></div>
           <img src={heroImg} alt="NGO Fieldwork" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-16">
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-6 md:mt-16">
           {/* Breadcrumb */}
           <div className="flex items-center justify-center space-x-2 text-gray-300 mb-6 text-sm font-medium">
             <span className="hover:text-white cursor-pointer transition-colors" onClick={() => navigate('/')}>Home</span>
@@ -80,7 +80,7 @@ export default function AboutPage() {
             <button onClick={() => navigate('/projects')} className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-full font-bold transition-transform transform hover:scale-105 shadow-lg flex items-center gap-2 border border-blue-600 hover:border-blue-700">
               Explore Projects <ArrowRight className="w-5 h-5" />
             </button>
-            <button onClick={() => navigate('/volunteer')} className="bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:text-blue-900 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
+            <button onClick={() => navigate('/volunteer')} className="bg-white/20 backdrop-blur-md border-2 border-white text-white hover:bg-white hover:!text-blue-900 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 shadow-lg">
               Join Us
             </button>
           </motion.div>
@@ -88,7 +88,7 @@ export default function AboutPage() {
       </section>
 
       {/* 2. Organization Intro Section */}
-      <section className="py-24 bg-white">
+      <section id="who-we-are" className="py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
@@ -105,29 +105,29 @@ export default function AboutPage() {
                   The organization actively promotes awareness of government schemes and supports vulnerable communities through evidence-based interventions and strategic partnerships.
                 </p>
               </div>
-              
-              {/* Stats within intro */}
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-10">
-                {[
-                  { num: 50, label: "Projects Completed", suffix: "+" },
-                  { num: 20, label: "States Covered", suffix: "+" },
-                  { num: 10000, label: "Survey Participants", suffix: "+" },
-                  { num: 500, label: "Volunteers Engaged", suffix: "+" }
-                ].map((stat, i) => (
-                  <div key={i} className="text-center p-5 bg-blue-50 rounded-2xl border border-blue-100 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all">
-                    <div className="text-3xl font-bold text-blue-700 mb-2">
-                      <AnimatedCounter end={stat.num} suffix={stat.suffix} />
-                    </div>
-                    <div className="text-xs font-bold text-gray-600 uppercase tracking-wide">{stat.label}</div>
-                  </div>
-                ))}
-              </div>
             </motion.div>
             
             <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4 relative">
               <img src={aboutImg1} alt="NGO Fieldwork" className="rounded-[2rem] shadow-xl w-full h-80 object-cover transform translate-y-8 hover:scale-[1.03] transition-transform duration-500" />
               <img src={aboutImg2} alt="Our Team" className="rounded-[2rem] shadow-xl w-full h-80 object-cover hover:scale-[1.03] transition-transform duration-500" />
             </motion.div>
+          </div>
+          
+          {/* Stats below the two-column intro */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
+            {[
+              { num: 50, label: "Projects Completed", suffix: "+" },
+              { num: 20, label: "States Covered", suffix: "+" },
+              { num: 10000, label: "Survey Participants", suffix: "+" },
+              { num: 500, label: "Volunteers Engaged", suffix: "+" }
+            ].map((stat, i) => (
+              <div key={i} className="text-center p-6 bg-blue-50 rounded-3xl border border-blue-100 shadow-sm hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300 min-w-0">
+                <div className="text-3xl sm:text-4xl font-extrabold text-blue-700 mb-2">
+                  <AnimatedCounter end={stat.num} suffix={stat.suffix} />
+                </div>
+                <div className="text-xs sm:text-sm font-bold text-gray-600 uppercase tracking-wide leading-snug">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -137,7 +137,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Vision */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="bg-gradient-to-br from-blue-900 to-indigo-900 rounded-[3rem] p-12 shadow-2xl relative overflow-hidden group">
+            <motion.div id="our-vision" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="scroll-mt-24 bg-gradient-to-br from-blue-900 to-indigo-900 rounded-[3rem] p-12 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700"><Globe size={180} /></div>
               <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-inner border border-white/20 group-hover:-translate-y-2 transition-transform">
                 <Target className="w-10 h-10 text-blue-300" />
@@ -151,7 +151,7 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Mission */}
-            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="bg-gradient-to-br from-emerald-800 to-teal-900 rounded-[3rem] p-12 shadow-2xl relative overflow-hidden group">
+            <motion.div id="our-mission" initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }} className="scroll-mt-24 bg-gradient-to-br from-emerald-800 to-teal-900 rounded-[3rem] p-12 shadow-2xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 p-8 opacity-10 group-hover:scale-110 transition-transform duration-700"><Lightbulb size={180} /></div>
               <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-inner border border-white/20 group-hover:-translate-y-2 transition-transform">
                 <Activity className="w-10 h-10 text-emerald-300" />
@@ -171,7 +171,7 @@ export default function AboutPage() {
       </section>
 
       {/* 5. Core Objectives Section */}
-      <section className="py-24 bg-white">
+      <section id="core-objectives" className="py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-blue-900 mb-4">Core Objectives</h2>
@@ -198,7 +198,7 @@ export default function AboutPage() {
                 transition={{ delay: i * 0.1 }} 
                 className="bg-gray-50 rounded-3xl p-8 border border-gray-100 hover:border-blue-300 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 group cursor-pointer flex flex-col"
               >
-                <div className="w-16 h-16 bg-white text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:bg-blue-600 group-hover:text-white transition-all duration-300 border border-gray-100">
+                <div className="w-16 h-16 bg-white text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:scale-110 group-hover:!bg-blue-600 group-hover:text-white transition-all duration-300 border border-gray-100">
                   {React.cloneElement(obj.icon, { size: 28 })}
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">{obj.title}</h3>
@@ -210,7 +210,7 @@ export default function AboutPage() {
       </section>
 
       {/* 6. Our Approach Section */}
-      <section className="py-24 bg-blue-50 relative overflow-hidden">
+      <section id="our-approach" className="py-24 bg-blue-50 relative overflow-hidden scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Approach</h2>
@@ -256,7 +256,7 @@ export default function AboutPage() {
       </section>
 
       {/* 7. Why It Matters Section */}
-      <section className="py-24 bg-white">
+      <section id="why-it-matters" className="py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -50 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="relative grid grid-cols-2 gap-6">
@@ -280,7 +280,7 @@ export default function AboutPage() {
       </section>
 
       {/* 8. Recognition & Certifications Section */}
-      <section className="py-24 bg-gray-50 border-y border-gray-200">
+      <section id="recognition-certifications" className="py-24 bg-gray-50 border-y border-gray-200 scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">Recognition & Certifications</h2>
           <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-16"></div>
@@ -308,7 +308,7 @@ export default function AboutPage() {
       </section>
 
       {/* 9. Team / Leadership Section */}
-      <section className="py-24 bg-white">
+      <section id="our-leadership" className="py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Leadership</h2>
@@ -342,6 +342,18 @@ export default function AboutPage() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          <div className="flex justify-center mt-16">
+            <button 
+              onClick={() => navigate('/leaders')} 
+              className="group bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl hover:shadow-blue-500/20 flex items-center gap-2"
+            >
+              Meet our Leaders
+              <svg className="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
           </div>
         </div>
       </section>

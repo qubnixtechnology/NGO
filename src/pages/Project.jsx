@@ -144,12 +144,12 @@ export default function ProjectsPage() {
     <div className="min-h-screen bg-gray-50 font-poppins text-gray-800">
       
       {/* 1. Hero Section */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden">
+      <section className="relative min-h-[500px] md:h-[60vh] md:min-h-[500px] flex flex-col justify-start md:justify-center items-center overflow-hidden pt-28 pb-12 md:pt-24 md:pb-0">
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-indigo-900/80 to-purple-900/90 z-10"></div>
           <img src={heroImg} alt="Projects & Fieldwork" className="w-full h-full object-cover" />
         </div>
-        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-16">
+        <div className="relative z-20 text-center px-6 max-w-4xl mx-auto mt-6 md:mt-16">
           <div className="flex items-center justify-center space-x-2 text-gray-300 mb-6 text-sm font-medium">
             <span className="hover:text-white cursor-pointer transition-colors" onClick={() => navigate('/')}>Home</span>
             <ChevronRight className="w-4 h-4" />
@@ -444,7 +444,7 @@ export default function ProjectsPage() {
       {/* 5. Project Details Modal */}
       <AnimatePresence>
         {selectedProject && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center px-4 sm:px-6">
+          <div className="fixed inset-0 z-[2000] flex items-center justify-center px-4 sm:px-6">
             <motion.div 
               initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               className="fixed inset-0 bg-gray-900/70 backdrop-blur-sm"
