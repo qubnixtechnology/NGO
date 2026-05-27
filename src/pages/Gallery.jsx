@@ -47,32 +47,41 @@ const AnimatedCounter = ({ end, duration = 2, suffix = '' }) => {
 };
 
 const galleryCategories = [
-  "Serve & Activities",
-  "Welfare Activities"
+  "Serve & Research",
+  "Welfare",
+  "Meetings & Recognition"
 ];
 
 const projectPhotosModules = import.meta.glob('../assets/image/WebSite Photos/Project Photos/*.{jpeg,jpg,png,JPEG,JPG,PNG}', { eager: true });
 const welfarePhotosModules = import.meta.glob('../assets/image/WebSite Photos/wellfare activity/*.{jpeg,jpg,png,JPEG,JPG,PNG}', { eager: true });
+const meetingsPhotosModules = import.meta.glob('../assets/image/WebSite Photos/Meetings and Recognition/*.{jpeg,jpg,png,JPEG,JPG,PNG}', { eager: true });
 
 const projectPhotos = Object.values(projectPhotosModules).map((mod, i) => ({
   id: `proj-${i}`,
   src: mod.default || mod,
-  category: "Serve & Activities",
-  title: `Serve & Activities Photo ${i + 1}`
+  category: "Serve & Research",
+  title: `Serve & Research Photo ${i + 1}`
 }));
 
 const welfarePhotos = Object.values(welfarePhotosModules).map((mod, i) => ({
   id: `welfare-${i}`,
   src: mod.default || mod,
-  category: "Welfare Activities",
+  category: "Welfare",
   title: `Welfare Activity Photo ${i + 1}`
 }));
 
-const allPhotos = [...projectPhotos, ...welfarePhotos];
+const meetingsPhotos = Object.values(meetingsPhotosModules).map((mod, i) => ({
+  id: `meetings-${i}`,
+  src: mod.default || mod,
+  category: "Meetings & Recognition",
+  title: `Meetings & Recognition Photo ${i + 1}`
+}));
+
+const allPhotos = [...projectPhotos, ...welfarePhotos, ...meetingsPhotos];
 
 export default function GalleryPage() {
   const navigate = useNavigate();
-  const [activeCategory, setActiveCategory] = useState("Serve & Activities");
+  const [activeCategory, setActiveCategory] = useState("Serve & Research");
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState(null);
 
   const filteredPhotos = allPhotos.filter(photo => photo.category === activeCategory);
@@ -275,7 +284,7 @@ export default function GalleryPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-8">
             {[
               { num: 50, label: "Projects Executed", suffix: "+" },
-              { num: 20, label: "States Covered", suffix: "+" },
+              { num: 30, label: "States Covered", suffix: "+" },
               { num: 10000, label: "Survey Participants", suffix: "+" },
               { num: 500, label: "Dedicated Volunteers", suffix: "+" }
             ].map((stat, i) => {

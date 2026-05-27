@@ -8,10 +8,7 @@ import {
 } from 'lucide-react';
 
 // Images
-import campaign1Img from '../assets/image/WebSite Photos/2.jpeg';
-import campaign2Img from '../assets/image/WebSite Photos/3.jpeg';
-import campaign3Img from '../assets/image/WebSite Photos/4.jpeg';
-import impactImg from '../assets/image/WebSite Photos/7.jpeg';
+import impactImg from '../assets/image/volunter.png';
 
 export default function DonatePage() {
   const navigate = useNavigate();
@@ -106,21 +103,27 @@ export default function DonatePage() {
     {
       title: "Mental Health & Disaster Support Fund",
       desc: "Support emergency mental healthcare, counselling services, trauma recovery, disaster rehabilitation, and community resilience programmes.",
-      img: campaign1Img,
+      gradient: "from-rose-500 via-pink-500 to-orange-500", 
+      icon: <Activity className="w-10 h-10 text-white animate-pulse" />,
+      accentColor: "border-t-rose-500",
       raised: "₹1,20,000", goal: "₹2,00,000", percent: 60, donors: 150,
       objectives: ["Psychological first aid", "Counselling support", "Emergency relief", "Community rehabilitation"]
     },
     {
       title: "School Mental Health Initiative",
       desc: "Help provide counselling and emotional support services to students in government schools through research-based awareness initiatives.",
-      img: campaign2Img,
+      gradient: "from-blue-600 via-indigo-600 to-violet-600", 
+      icon: <BookOpen className="w-10 h-10 text-white" />,
+      accentColor: "border-t-indigo-600",
       raised: "₹45,000", goal: "₹1,00,000", percent: 45, donors: 82,
       objectives: ["Student counselling", "Mental health awareness", "Teacher orientation", "Parent engagement"]
     },
     {
       title: "Child Rights Protection Initiative",
       desc: "Promote child rights awareness, child protection systems, POCSO awareness, and safe learning environments through community engagement.",
-      img: campaign3Img,
+      gradient: "from-emerald-500 via-teal-500 to-cyan-500", 
+      icon: <Shield className="w-10 h-10 text-white" />,
+      accentColor: "border-t-emerald-500",
       raised: "₹80,000", goal: "₹1,50,000", percent: 53, donors: 110,
       objectives: ["Child safety awareness", "POCSO education", "Teacher training", "Child protection support"]
     }
@@ -153,13 +156,22 @@ export default function DonatePage() {
               whileInView={{ opacity: 1, y: 0 }} 
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group"
+              className={`bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-100 hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group border-t-4 ${camp.accentColor}`}
             >
-              <div className="relative h-60 overflow-hidden">
-                <img src={camp.img} alt={camp.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div className="absolute bottom-4 left-6 right-6">
-                  <h3 className="text-xl font-bold text-white mb-2 leading-tight">{camp.title}</h3>
+              <div className={`h-60 relative overflow-hidden bg-gradient-to-br ${camp.gradient} flex items-center justify-center`}>
+                {/* Floating abstract graphic elements for high-end look */}
+                <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent_60%)]"></div>
+                <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                
+                {/* Floating Glassmorphic Icon Container */}
+                <div className="relative z-10 w-20 h-20 bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                  {camp.icon}
+                </div>
+
+                {/* Floating Title over Header */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end p-6">
+                  <h3 className="text-xl font-bold text-white leading-tight group-hover:text-blue-50 transition-colors">{camp.title}</h3>
                 </div>
               </div>
               

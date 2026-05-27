@@ -10,8 +10,8 @@ import {
 
 // Assets
 import heroImg from '../assets/image/WebSite Photos/10.jpeg'; 
-import fieldworkImg1 from '../assets/image/WebSite Photos/1.jpeg';
-import fieldworkImg2 from '../assets/image/WebSite Photos/7.jpeg';
+import fieldworkImg1 from '../assets/image/WebSite Photos/Project Photos/pp17.jpg';
+import fieldworkImg2 from '../assets/image/WebSite Photos/Project Photos/pp41.jpeg';
 
 // Counter Component
 const AnimatedCounter = ({ end, duration = 2, suffix = '' }) => {
@@ -179,7 +179,7 @@ export default function JoinUsPage() {
                 {[
                   { num: 500, label: "Volunteers", suffix: "+" },
                   { num: 50, label: "Projects", suffix: "+" },
-                  { num: 20, label: "States Covered", suffix: "+" },
+                  { num: 30, label: "States Covered", suffix: "+" },
                   { num: 100, label: "Field Surveys", suffix: "+" }
                 ].map((stat, i) => (
                   <div key={i} className="bg-gradient-to-br from-blue-50 to-indigo-50 p-8 rounded-3xl border border-blue-100 text-center shadow-sm hover:shadow-lg transition-all hover:-translate-y-1">
@@ -203,35 +203,47 @@ export default function JoinUsPage() {
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-6">
             {[
               {
                 title: "Volunteer",
                 icon: <Heart className="w-8 h-8" />,
                 desc: "Support awareness campaigns, field programmes, social welfare activities, and community outreach initiatives.",
                 tags: ["Psychology", "Sociology", "MSW", "Social Work"],
-                color: "text-rose-500", bg: "bg-rose-50", border: "hover:border-rose-300"
+                color: "text-rose-500", bg: "bg-rose-50", border: "hover:border-rose-300",
+                btn: "bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 shadow-rose-200/50 hover:shadow-rose-300/50"
               },
               {
                 title: "Intern",
                 icon: <GraduationCap className="w-8 h-8" />,
                 desc: "Gain hands-on experience in research, NGO operations, field surveys, and social development projects.",
                 tags: ["Students", "Research", "Fieldwork"],
-                color: "text-blue-500", bg: "bg-blue-50", border: "hover:border-blue-300"
+                color: "text-blue-500", bg: "bg-blue-50", border: "hover:border-blue-300",
+                btn: "bg-gradient-to-r from-blue-500 to-indigo-600 hover:from-blue-600 hover:to-indigo-700 shadow-blue-200/50 hover:shadow-blue-300/50"
               },
               {
                 title: "Member",
                 icon: <Users className="w-8 h-8" />,
                 desc: "Become part of Engross Foundation's network and contribute your expertise and leadership.",
                 tags: ["Professionals", "Leadership", "Advisory"],
-                color: "text-purple-500", bg: "bg-purple-50", border: "hover:border-purple-300"
+                color: "text-purple-500", bg: "bg-purple-50", border: "hover:border-purple-300",
+                btn: "bg-gradient-to-r from-purple-500 to-indigo-600 hover:from-purple-600 hover:to-indigo-700 shadow-purple-200/50 hover:shadow-purple-300/50"
               },
               {
                 title: "Enumerator",
                 icon: <ClipboardList className="w-8 h-8" />,
                 desc: "Participate in field surveys, data collection, household interviews, and impact assessments.",
                 tags: ["Conduct Surveys", "Record Data", "Research Assist"],
-                color: "text-emerald-500", bg: "bg-emerald-50", border: "hover:border-emerald-300"
+                color: "text-emerald-500", bg: "bg-emerald-50", border: "hover:border-emerald-300",
+                btn: "bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 shadow-emerald-200/50 hover:shadow-emerald-300/50"
+              },
+              {
+                title: "Consultant",
+                icon: <Briefcase className="w-8 h-8" />,
+                desc: "Provide expert guidance, research, policy design, advisory support, and specialized training solutions.",
+                tags: ["Advisory", "Policy Design", "Technical Support", "Research"],
+                color: "text-amber-500", bg: "bg-amber-50", border: "hover:border-amber-300",
+                btn: "bg-gradient-to-r from-amber-500 to-orange-600 hover:from-amber-600 hover:to-orange-700 shadow-amber-200/50 hover:shadow-amber-300/50"
               }
             ].map((role, i) => (
               <motion.div 
@@ -258,9 +270,9 @@ export default function JoinUsPage() {
                 
                 <button 
                   onClick={() => handleApplyClick(role.title)}
-                  className="w-full py-4 rounded-xl font-bold text-white bg-gray-800 hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+                  className={`w-full py-4 rounded-xl font-bold text-white transition-all duration-300 flex items-center justify-center gap-2 group/btn shadow-lg hover:-translate-y-0.5 ${role.btn}`}
                 >
-                  Apply as {role.title} <ArrowRight className="w-4 h-4" />
+                  Apply as {role.title} <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover/btn:translate-x-1" />
                 </button>
               </motion.div>
             ))}
@@ -334,7 +346,7 @@ export default function JoinUsPage() {
                 <h2 className="text-3xl font-bold text-gray-900 mb-10 text-center">How It Works</h2>
                 <div className="space-y-8 relative before:absolute before:inset-0 before:ml-[1.7rem] before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-gray-200 before:to-transparent">
                   {[
-                    { title: "Choose your role", desc: "Select Volunteer, Intern, Member, or Enumerator." },
+                    { title: "Choose your role", desc: "Select Volunteer, Intern, Member, Enumerator, or Consultant." },
                     { title: "Fill the application", desc: "Complete the registration form below." },
                     { title: "Upload documents", desc: "Provide your Resume and valid Govt ID." },
                     { title: "Application review", desc: "Our team will review your profile and experience." },
@@ -484,6 +496,7 @@ export default function JoinUsPage() {
                       <option value="Intern">Intern</option>
                       <option value="Member">Member</option>
                       <option value="Enumerator">Enumerator</option>
+                      <option value="Consultant">Consultant</option>
                     </select>
                   </div>
                 </div>

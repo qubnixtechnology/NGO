@@ -11,7 +11,7 @@ import {
 // Images
 import heroImg from '../assets/image/WebSite Photos/5.jpeg';
 import aboutImg1 from '../assets/image/WebSite Photos/7.jpeg';
-import aboutImg2 from '../assets/image/WebSite Photos/10.jpeg';
+import aboutImg2 from '../assets/image/aboutus.jpeg';
 import impactImg1 from '../assets/image/WebSite Photos/8.jpeg';
 import impactImg2 from '../assets/image/WebSite Photos/9.jpeg';
 
@@ -107,9 +107,9 @@ export default function AboutPage() {
               </div>
             </motion.div>
             
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className="grid grid-cols-2 gap-4 relative">
-              <img src={aboutImg1} alt="NGO Fieldwork" className="rounded-[2rem] shadow-xl w-full h-80 object-cover transform translate-y-8 hover:scale-[1.03] transition-transform duration-500" />
-              <img src={aboutImg2} alt="Our Team" className="rounded-[2rem] shadow-xl w-full h-80 object-cover hover:scale-[1.03] transition-transform duration-500" />
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} className=" h-full relative">
+              
+              <img src={aboutImg2} alt="Our Team" className="rounded-[2rem] shadow-xl w-full h-90 object-cover hover:scale-[1.03] transition-transform duration-500" />
             </motion.div>
           </div>
           
@@ -117,7 +117,7 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20">
             {[
               { num: 50, label: "Projects Completed", suffix: "+" },
-              { num: 20, label: "States Covered", suffix: "+" },
+              { num: 30, label: "States Covered", suffix: "+" },
               { num: 10000, label: "Survey Participants", suffix: "+" },
               { num: 500, label: "Volunteers Engaged", suffix: "+" }
             ].map((stat, i) => (
@@ -142,7 +142,7 @@ export default function AboutPage() {
               <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-inner border border-white/20 group-hover:-translate-y-2 transition-transform">
                 <Target className="w-10 h-10 text-blue-300" />
               </div>
-              <h3 className="text-4xl font-bold text-white mb-6">Our Vision</h3>
+              <h3 className="text-4xl font-bold text-white mb-6">Vision</h3>
               <div className="bg-white/10 rounded-2xl p-8 border border-white/10 backdrop-blur-sm">
                 <p className="text-blue-50 text-lg leading-relaxed">
                   To build an inclusive and sustainable society anchored in research and evidence-based development, ensuring that every individual—especially vulnerable and marginalized communities—has equitable access to opportunities, resources, and support systems for a dignified life.
@@ -156,7 +156,7 @@ export default function AboutPage() {
               <div className="w-20 h-20 bg-white/10 backdrop-blur-md rounded-3xl flex items-center justify-center mb-8 shadow-inner border border-white/20 group-hover:-translate-y-2 transition-transform">
                 <Activity className="w-10 h-10 text-emerald-300" />
               </div>
-              <h3 className="text-4xl font-bold text-white mb-6">Our Mission</h3>
+              <h3 className="text-4xl font-bold text-white mb-6">Mission</h3>
               <div className="bg-white/10 rounded-2xl p-8 border border-white/10 backdrop-blur-sm space-y-4">
                 <p className="text-emerald-50 text-lg leading-relaxed">
                   To promote inclusive and sustainable development through research-driven and evidence-based interventions that strengthen livelihoods, enhance skills, and build resilient communities.
@@ -213,7 +213,7 @@ export default function AboutPage() {
       <section id="our-approach" className="py-24 bg-blue-50 relative overflow-hidden scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-20">
-            <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Approach</h2>
+            <h2 className="text-4xl font-bold text-blue-900 mb-4"> Approach</h2>
             <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full"></div>
           </div>
           
@@ -308,7 +308,7 @@ export default function AboutPage() {
       </section>
 
       {/* 9. Team / Leadership Section */}
-      <section id="our-leadership" className="py-24 bg-white scroll-mt-24">
+      {/* <section id="our-leadership" className="py-24 bg-white scroll-mt-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Leadership</h2>
@@ -356,7 +356,7 @@ export default function AboutPage() {
             </button>
           </div>
         </div>
-      </section>
+      </section> */}
 
       {/* 10. Call to Action Section */}
       <section className="py-24 bg-gradient-to-r from-blue-700 via-indigo-700 to-purple-700 text-center px-6 relative overflow-hidden">

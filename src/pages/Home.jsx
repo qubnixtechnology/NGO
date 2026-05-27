@@ -18,12 +18,19 @@ import slide1Img from '../assets/image/WebSite Photos/1.jpeg';
 import slide2Img from '../assets/image/WebSite Photos/6.jpeg';
 import slide3Img from '../assets/image/WebSite Photos/9.jpeg';
 import aboutImg from '../assets/image/WebSite Photos/7.jpeg';
-import founderImg from '../assets/image/WebSite Photos/10.jpeg'; // For team image
-import volunteerImg from '../assets/image/WebSite Photos/11.jpeg';
-import fund1Img from '../assets/image/WebSite Photos/2.jpeg';
-import fund2Img from '../assets/image/WebSite Photos/3.jpeg';
-import fund3Img from '../assets/image/WebSite Photos/4.jpeg';
+import founderImg from '../assets/image/aboutus.jpeg'; // For team image
+import volunteerImg from '../assets/image/volunter.png';
 import impactImg from '../assets/image/WebSite Photos/8.jpeg'; // For why it matters
+
+// Import Approach images (from assets/image/approch folder)
+import collabImg from '../assets/image/approch/Collaborative Partnerships.png';
+import sustainImg from '../assets/image/approch/Sustainable Engagement.png';
+import leadImg from '../assets/image/approch/Professional and Ethical Leadership.png';
+import centerImg from '../assets/image/approch/Community-Centered.png';
+import empowerImg from '../assets/image/approch/Empowerment & Self-Reliance.png';
+
+// Import Publications & Annual Report PDF
+import annualReportPdf from '../assets/ENGROSS FOUNDATION ANNUAL REPORT 2024-2025.pdf';
 
 const AnimatedCounter = ({ end, duration = 2, suffix = '' }) => {
   const [count, setCount] = useState(0);
@@ -176,7 +183,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { num: 50, label: "Projects Completed", icon: <CheckCircle className="w-8 h-8"/>, suffix: "+" },
-              { num: 20, label: "States Covered", icon: <Network className="w-8 h-8"/>, suffix: "+" },
+              { num: 30, label: "States Covered", icon: <Network className="w-8 h-8"/>, suffix: "+" },
               { num: 10000, label: "Survey Participants", icon: <Users className="w-8 h-8"/>, suffix: "+" },
               { num: 500, label: "Volunteers Engaged", icon: <Heart className="w-8 h-8"/>, suffix: "+" }
             ].map((stat, i) => (
@@ -243,17 +250,17 @@ export default function Home() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="relative grid grid-cols-2 gap-4"
+              className="relative "
             >
-              <img 
+              {/* <img 
                 src={aboutImg} 
                 alt="NGO Impact" 
                 className="rounded-3xl shadow-xl w-full h-72 object-cover transform translate-y-8 hover:scale-105 transition-transform duration-500"
-              />
+              /> */}
               <img 
                 src={founderImg} 
                 alt="Our Team" 
-                className="rounded-3xl shadow-xl w-full h-72 object-cover hover:scale-105 transition-transform duration-500"
+                className="rounded-3xl shadow-xl w-full h-full object-cover hover:scale-105 transition-transform duration-500"
               />
             </motion.div>
           </div>
@@ -275,7 +282,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-r from-blue-400 to-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform -rotate-6 group-hover:rotate-0 transition-transform">
                 <Target className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Our Vision</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">Vision</h3>
               <p className="text-blue-100 text-lg leading-relaxed">
                 To build an inclusive and sustainable society where every individual has equitable access to opportunities, resources, and support systems for a dignified life.
               </p>
@@ -292,7 +299,7 @@ export default function Home() {
               <div className="w-16 h-16 bg-gradient-to-r from-purple-400 to-purple-600 rounded-2xl flex items-center justify-center mb-8 shadow-lg transform rotate-6 group-hover:rotate-0 transition-transform">
                 <Lightbulb className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-3xl font-bold text-white mb-4">Our Mission</h3>
+              <h3 className="text-3xl font-bold text-white mb-4">Mission</h3>
               <p className="text-blue-100 text-lg leading-relaxed">
                 To promote research-driven and evidence-based development programmes that strengthen livelihoods, enhance skills, and build resilient communities.
               </p>
@@ -389,21 +396,116 @@ export default function Home() {
         </div>
       </section>
 
+      {/* 6.5 Key Documents & Publications Section */}
+      <section className="py-20 bg-gray-50 border-t border-b border-gray-100">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">Key Documents & Publications</h2>
+            <div className="w-24 h-1.5 bg-blue-600 mx-auto rounded-full mb-6"></div>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto font-light leading-relaxed">
+              Read our latest annual reports and community newsletters to stay informed about our social impact, research findings, and community welfare initiatives.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-10 max-w-5xl mx-auto">
+            {/* Card 1: Annual Reports */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+            >
+              {/* Decorative subtle background gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-blue-50 rounded-bl-full -z-10 group-hover:bg-blue-100 transition-colors"></div>
+              
+              <div>
+                <div className="w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-blue-600 group-hover:text-white transition-all duration-300">
+                  <BookOpen size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">Annual Reports</h3>
+                <p className="text-gray-600 text-lg leading-relaxed mb-8 pr-4">
+                  Explore our comprehensive **Annual Report 2024-2025** detailing our ground-level surveys, community welfare impact, financial audits, and trust milestones.
+                </p>
+              </div>
+
+              <a
+                href={annualReportPdf}
+                download="ENGROSS_FOUNDATION_ANNUAL_REPORT_2024_2025.pdf"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-blue-200/50 hover:shadow-lg hover:shadow-blue-300/50 transform hover:-translate-y-0.5"
+              >
+                Download Annual Report (PDF)
+                <ArrowRight size={18} className="animate-pulse" />
+              </a>
+            </motion.div>
+
+            {/* Card 2: Newsletters */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-[2.5rem] p-10 border border-gray-100 shadow-lg hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
+            >
+              {/* Decorative subtle background gradient */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-purple-50 rounded-bl-full -z-10 group-hover:bg-purple-100 transition-colors"></div>
+
+              <div>
+                <div className="w-16 h-16 bg-purple-50 text-purple-600 rounded-2xl flex items-center justify-center mb-8 shadow-sm group-hover:bg-purple-600 group-hover:text-white transition-all duration-300">
+                  <Network size={32} />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-4 leading-tight">Newsletters</h3>
+                <p className="text-gray-600 text-lg leading-relaxed mb-8 pr-4">
+                  Read our latest **Community Connect Newsletter (May 2026)** to catch up on recent volunteer field campaigns, active projects, and upcoming outreach events.
+                </p>
+              </div>
+
+              <a
+                href={annualReportPdf}
+                download="ENGROSS_FOUNDATION_NEWSLETTER_MAY_2026.pdf"
+                className="w-full bg-purple-600 hover:bg-purple-700 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center gap-3 shadow-md shadow-purple-200/50 hover:shadow-lg hover:shadow-purple-300/50 transform hover:-translate-y-0.5"
+              >
+                Download Newsletter (PDF)
+                <ArrowRight size={18} className="animate-pulse" />
+              </a>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* 7. Our Approach Section */}
       <section className="py-20 bg-blue-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-blue-900 mb-4">Our Approach</h2>
+            <h2 className="text-4xl font-bold text-blue-900 mb-4">Approach</h2>
             <div className="w-24 h-1 bg-blue-600 mx-auto rounded-full"></div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 justify-center">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
             {[
-              { icon: <Handshake />, title: "Collaborative Partnerships", desc: "Working with institutions and government bodies." },
-              { icon: <Leaf />, title: "Sustainable Engagement", desc: "Long-term community-focused interventions." },
-              { icon: <Users />, title: "Professional Leadership", desc: "Ethical and research-driven programme implementation." },
-              { icon: <Heart />, title: "Community-Centered Work", desc: "Inclusive and participatory development planning." },
-              { icon: <Target />, title: "Empowerment & Self-Reliance", desc: "Building leadership and community ownership." }
+              { 
+                image: collabImg, 
+                title: "Collaborative Partnerships", 
+                desc: "We build strong partnerships with government bodies, educational institutions, civil society organizations, and corporate stakeholders to design and implement impactful programs at scale." 
+              },
+              { 
+                image: sustainImg, 
+                title: "Sustainable Engagement", 
+                desc: "Our initiatives are not short-term interventions. We focus on long-term engagement, ensuring continuity, trust-building, and lasting outcomes for communities." 
+              },
+              { 
+                image: leadImg, 
+                title: "Professional & Ethical Leadership", 
+                desc: "Our team comprises experienced professionals from diverse fields including psychology, research, social development, and policy. We ensure ethical practices, transparency, and high-quality execution in every initiative." 
+              },
+              { 
+                image: centerImg, 
+                title: "Community-Centered", 
+                desc: "We place people at the heart of our work. Every program is designed based on real needs, ensuring inclusivity, participation, and cultural sensitivity." 
+              },
+              { 
+                image: empowerImg, 
+                title: "Empowerment & Self-Reliance", 
+                desc: "We believe in enabling individuals and communities to take charge of their own development by building skills, awareness, and institutional capacities." 
+              }
             ].map((approach, i) => (
               <motion.div
                 key={i}
@@ -411,13 +513,23 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-2xl p-8 shadow-sm hover:shadow-2xl hover:-translate-y-2 hover:!bg-blue-600 hover:!border-blue-600 cursor-pointer transition-all duration-300 border border-gray-100 h-full flex flex-col group"
+                className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border border-gray-100 flex flex-col h-full group"
               >
-                <div className="text-blue-600 mb-6 group-hover:text-white group-hover:scale-110 transform transition-all duration-300 origin-left">
-                  {React.cloneElement(approach.icon, { size: 48 })}
+                <div className="h-52 bg-gray-50 flex items-center justify-center p-6 relative overflow-hidden group-hover:bg-blue-50/50 transition-colors duration-300">
+                  {/* Subtle graphic grid overlay for professional look */}
+                  <div className="absolute inset-0 bg-[linear-gradient(rgba(0,0,0,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,0,0,0.02)_1px,transparent_1px)] bg-[size:20px_20px] opacity-30"></div>
+                  <img 
+                    src={approach.image} 
+                    alt={approach.title} 
+                    className="max-w-full max-h-full object-contain transform group-hover:scale-105 transition-transform duration-500 relative z-10"
+                  />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-white transition-colors duration-300">{approach.title}</h3>
-                <p className="text-gray-600 text-lg group-hover:text-blue-50 transition-colors duration-300 leading-relaxed">{approach.desc}</p>
+                <div className="p-8 flex-grow flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors duration-300 leading-snug">{approach.title}</h3>
+                    <p className="text-gray-600 text-lg leading-relaxed">{approach.desc}</p>
+                  </div>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -480,9 +592,27 @@ export default function Home() {
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
-              { title: "Mental Health & Disaster Support Fund", desc: "Provide emergency mental healthcare and rehabilitation support.", img: fund1Img },
-              { title: "School Mental Health Initiative", desc: "Support counselling programmes for school students.", img: fund2Img },
-              { title: "Child Rights Protection Initiative", desc: "Promote child safety awareness and protection mechanisms.", img: fund3Img }
+              { 
+                title: "Mental Health & Disaster Support Fund", 
+                desc: "Provide emergency mental healthcare and rehabilitation support.", 
+                gradient: "from-rose-500 via-pink-500 to-orange-500", 
+                icon: <Activity className="w-10 h-10 text-white animate-pulse" />,
+                accentColor: "border-t-rose-500"
+              },
+              { 
+                title: "School Mental Health Initiative", 
+                desc: "Support counselling programmes for school students.", 
+                gradient: "from-blue-600 via-indigo-600 to-violet-600", 
+                icon: <BookOpen className="w-10 h-10 text-white" />,
+                accentColor: "border-t-indigo-600"
+              },
+              { 
+                title: "Child Rights Protection Initiative", 
+                desc: "Promote child safety awareness and protection mechanisms.", 
+                gradient: "from-emerald-500 via-teal-500 to-cyan-500", 
+                icon: <Shield className="w-10 h-10 text-white" />,
+                accentColor: "border-t-emerald-500"
+              }
             ].map((campaign, i) => (
               <motion.div
                 key={i}
@@ -490,17 +620,27 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100"
+                className={`bg-white rounded-3xl shadow-lg hover:shadow-2xl hover:-translate-y-3 transition-all duration-300 overflow-hidden flex flex-col group border border-gray-100 border-t-4 ${campaign.accentColor}`}
               >
-                <div className="h-56 relative overflow-hidden">
-                  <img src={campaign.img} alt={campaign.title} className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-4 py-1.5 text-xs font-bold text-blue-600 rounded-full uppercase tracking-wider shadow-md">
+                <div className={`h-56 relative overflow-hidden bg-gradient-to-br ${campaign.gradient} flex items-center justify-center`}>
+                  {/* Floating abstract graphic elements for high-end look */}
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.2),transparent_60%)]"></div>
+                  <div className="absolute -top-10 -left-10 w-32 h-32 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                  <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-white/10 rounded-full blur-xl group-hover:scale-150 transition-transform duration-700"></div>
+                  
+                  {/* Floating Glassmorphic Icon Container */}
+                  <div className="relative z-10 w-20 h-20 bg-white/15 backdrop-blur-md border border-white/20 rounded-2xl flex items-center justify-center shadow-xl group-hover:scale-110 group-hover:rotate-3 transition-all duration-500">
+                    {campaign.icon}
+                  </div>
+
+                  {/* Redesigned Floating Cause Tag */}
+                  <div className="absolute top-4 right-4 bg-white/20 backdrop-blur-md border border-white/30 px-4 py-1.5 text-xs font-bold text-white rounded-full uppercase tracking-wider shadow-md">
                     Cause
                   </div>
                 </div>
                 <div className="p-8 flex-grow flex flex-col justify-between">
                   <div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors">{campaign.title}</h3>
+                    <h3 className="text-2xl font-bold text-gray-900 mb-4 group-hover:text-blue-700 transition-colors leading-snug">{campaign.title}</h3>
                     <p className="text-gray-600 mb-8 text-lg leading-relaxed">{campaign.desc}</p>
                   </div>
                   <div className="space-y-3 mt-auto">
@@ -565,8 +705,8 @@ export default function Home() {
                 </button>
               </div>
             </div>
-            <div className="md:w-1/2 relative z-10 w-full">
-              <img src={volunteerImg} alt="Volunteers" className="rounded-3xl shadow-2xl w-full object-cover h-80 md:h-[400px] border-4 border-white/20" />
+            <div className="md:w-90 relative z-10 w-full">
+              <img src={volunteerImg} alt="Volunteers" className="rounded-3xl shadow-2xl w-full object-cover h-100 md:h-[400px] border-4 border-white/20" />
             </div>
           </div>
         </div>

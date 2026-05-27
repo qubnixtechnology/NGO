@@ -44,12 +44,26 @@ export default function LeadersPage() {
       name: "Dr. Ashish Srivastava",
       role: "Researcher / Chief Functionary",
       img: ashishImg,
-      subtitle: "PhD Psychology – ODISA",
+      subtitle: "PhD Psychology",
       details: [
         "30+ years experience in mentoring, evaluation, implementation, social & political research, policy research, CSR, development, training & capacity building.",
         "Medal level mentor, motivational guide, counselling winner & trainer.",
         "Worked with 20+ ministries, CSR, NGOs, development institutions and universities in India.",
         "Associated with assessment, evaluation & policy research works for international organizations."
+      ]
+    },
+    
+    {
+      name: "Shri Manoj Mishra",
+      role: "Director",
+      img: manojImg,
+      subtitle: "30+ Years Experience",
+      details: [
+        "30+ years in civil rights, public policy, political & corporate lobbying.",
+        "Former chairman of Child Welfare Committee",
+        "Former vice chairman of social organizations and universities.",
+        "Lead role in formulation aligned with SDG norms.",
+        "Proficient in bridge skills and development initiatives."
       ]
     },
     {
@@ -65,40 +79,15 @@ export default function LeadersPage() {
       ]
     },
     {
-      name: "Shri Manoj Mishra",
-      role: "Director",
-      img: manojImg,
-      subtitle: "30+ Years Experience",
-      details: [
-        "30+ years in civil rights, public policy, political & corporate lobbying.",
-        "Former chairman of CWE Ventures Pvt. Ltd.",
-        "Former vice chairman of social organizations and universities.",
-        "Lead role in formulation aligned with SDG norms.",
-        "Proficient in bridge skills and development initiatives."
-      ]
-    },
-    {
       name: "Shri Janardan Ram",
       role: "Advisor",
       img: janardanImg,
-      subtitle: "MHRM, IPS Management",
+      subtitle: "M Phil IIPS Mumbai",
       details: [
         "20+ years in social development.",
         "Expertise in social reforms, program planning, policy analysis and management.",
         "Worked in education, poverty reduction, health & hygiene, livelihood, skill development, PRIs and rural institutions.",
         "Associated with UNICEF, World Bank and other organizations."
-      ]
-    },
-    {
-      name: "Smt. Aparna Bhatt",
-      role: "Chief Coordinator",
-      img: aparnaImg,
-      subtitle: "NIPM Trained Professional",
-      details: [
-        "20+ years experience in education, counselling, capacity building and social development.",
-        "NIPM trained professional.",
-        "Former program associate working in government and social sector.",
-        "National level mentor, MAHD & postgraduate."
       ]
     },
     {
@@ -113,7 +102,20 @@ export default function LeadersPage() {
         "Published in national & international journals.",
         "Expertise in teaching, training, research and capacity building & FPOs."
       ]
-    }
+    },
+    {
+      name: "Smt. Aparna Bhatt",
+      role: "Chief Coordinator",
+      img: aparnaImg,
+      subtitle: "NIPM Trained Professional",
+      details: [
+        "20+ years experience in education, counselling, capacity building and social development.",
+        "NIPM trained professional.",
+        "Former program associate working in government and social sector.",
+        "National level mentor, MAHD & postgraduate."
+      ]
+    },
+    
   ];
 
   // Core Advisors Table Data
@@ -385,37 +387,93 @@ export default function LeadersPage() {
         }
         .core-team-card {
           border-radius: 20px;
-          border: 1px solid #f1f3f5;
-          box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+          border: 1px solid rgba(15, 44, 89, 0.07);
+          box-shadow: 0 10px 30px rgba(15, 44, 89, 0.03);
           overflow: hidden;
-          transition: all 0.3s ease;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
           background: #ffffff;
           height: 100%;
+          position: relative;
         }
         .core-team-card:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+          transform: translateY(-8px);
+          box-shadow: 0 22px 45px rgba(15, 44, 89, 0.12);
+          border-color: rgba(0, 102, 102, 0.18);
+        }
+        .core-team-accent-bar {
+          height: 6px;
+          background: linear-gradient(90deg, #0f2c59 0%, #006666 50%, #0f2c59 100%);
+          background-size: 200% auto;
+          transition: all 0.5s ease;
+        }
+        .core-team-card:hover .core-team-accent-bar {
+          height: 8px;
+          background-position: right center;
         }
         .core-team-img-wrapper {
-          width: 80px;
-          height: 80px;
-          border-radius: 15px;
+          width: 86px;
+          height: 86px;
+          border-radius: 50%;
           overflow: hidden;
-          border: 2px solid #eef2f5;
+          border: 2px solid #006666;
+          padding: 3px;
+          background: #ffffff;
+          box-shadow: 0 4px 15px rgba(0, 102, 102, 0.12);
           flex-shrink: 0;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .core-team-img-wrapper img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          border-radius: 50%;
+        }
+        .core-team-card:hover .core-team-img-wrapper {
+          box-shadow: 0 6px 20px rgba(0, 102, 102, 0.22);
+          transform: scale(1.06);
+          border-color: #0f2c59;
         }
         .core-team-initials {
-          width: 80px;
-          height: 80px;
-          border-radius: 15px;
-          background-color: #e6f4f8;
+          width: 86px;
+          height: 86px;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #e6f4f8 0%, #c2e5f0 100%);
           color: #006666;
           font-weight: 700;
           font-size: 1.6rem;
           display: flex;
           align-items: center;
           justify-content: center;
+          border: 2px solid #006666;
+          padding: 3px;
+          box-shadow: 0 4px 15px rgba(0, 102, 102, 0.12);
           flex-shrink: 0;
+          transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .core-team-card:hover .core-team-initials {
+          box-shadow: 0 6px 20px rgba(0, 102, 102, 0.22);
+          transform: scale(1.06);
+          border-color: #0f2c59;
+        }
+        .bg-custom-teal-light {
+          background-color: rgba(0, 102, 102, 0.07) !important;
+        }
+        .core-team-divider {
+          border: 0;
+          height: 1px;
+          background: linear-gradient(to right, rgba(0, 102, 102, 0.25), rgba(15, 44, 89, 0.25), rgba(0, 102, 102, 0.03));
+          margin: 18px 0;
+        }
+        .bio-bullet-icon {
+          color: #006666;
+          font-size: 0.95rem;
+          margin-top: 3px;
+          flex-shrink: 0;
+          transition: all 0.3s ease;
+        }
+        .core-team-card:hover .bio-bullet-icon {
+          transform: scale(1.15);
+          color: #0f2c59;
         }
       `}</style>
 
@@ -434,15 +492,82 @@ export default function LeadersPage() {
             <BsChevronRight className="mx-2" style={{ fontSize: '0.7rem' }} />
             <span className="text-info">Our Leaders</span>
           </div>
-          <h1 className="display-4 fw-bold text-white mb-3">Our Core Team & Leadership</h1>
+          <h1 className="display-4 fw-bold text-white mb-3"> Leadership & Core Team</h1>
           <p className="lead text-light max-w-2xl mx-auto fw-light fs-6">
             The dedicated team of social practitioners, researchers, and advisors driving positive societal change through research and execution.
           </p>
         </div>
       </section>
 
+      {/* Chief Functionary's Speaks Section */}
+      <section id="chief-functionary-speaks" className="py-5 bg-white border-bottom border-light">
+        <div className="container py-4">
+          <div className="row g-5 align-items-center">
+            
+            {/* Left: Premium Portrait Column */}
+            <div className="col-12 col-lg-4 text-center">
+              <div className="position-relative d-inline-block">
+                {/* Decorative border/backdrop rings */}
+                <div className="position-absolute translate-middle-x bg-custom-teal opacity-10 rounded-circle" style={{ width: '110%', height: '110%', top: '-5%', left: '50%', zIndex: 0, filter: 'blur(8px)' }}></div>
+                
+                <div className="position-relative overflow-hidden rounded-4 shadow-lg border border-white" style={{ maxWidth: '320px', zIndex: 1 }}>
+                  <img 
+                    src={ashishImg} 
+                    alt="Dr. Ashish Srivastava" 
+                    className="w-100 h-auto object-fit-cover" 
+                  />
+                  <div className="bg-custom-navy text-white py-3 text-center">
+                    <h3 className="h5 fw-bold mb-0">Dr. Ashish Srivastava</h3>
+                    <p className="small text-info mb-0 fw-light">PhD Psychology / Chief Functionary</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: The Speaks Content Column */}
+            <div className="col-12 col-lg-8">
+              <div className="ps-lg-4">
+                <span className="text-custom-teal fw-bold text-uppercase tracking-wider fs-7">Message from our Leader</span>
+                <h2 className="display-6 fw-bold text-custom-navy mt-1 mb-4 position-relative">
+                  CHIEF FUNCTIONARY’S SPEAKS
+                </h2>
+                
+                <div className="text-secondary leading-relaxed fs-6" style={{ textAlign: 'justify' }}>
+                  <p className="mb-4">
+                    Welcome to Engross Foundation.
+                  </p>
+                  <p className="mb-4">
+                    At Engross Foundation, we believe that sustainable development is possible only when communities are empowered with knowledge, opportunities, dignity, and access to the right support systems. Our mission is to create meaningful social impact through research, innovation, capacity building, counselling, and community-driven development initiatives.
+                  </p>
+                  <p className="mb-4">
+                    Over the years, our team has worked closely with government departments, national and international organizations, institutions, and grassroots communities across diverse sectors including rural development, education, livelihoods, health, mental well-being, social protection, disaster support, and policy research. These experiences have strengthened our commitment towards evidence-based and people-centric development approaches.
+                  </p>
+                  <p className="mb-4">
+                    We recognize that every community possesses unique strengths and aspirations. Therefore, our efforts focus not only on identifying challenges but also on building sustainable solutions through participation, collaboration, and empowerment. Through research, monitoring & evaluation, awareness programmes, counselling support, and skill development initiatives, we aim to bridge gaps between policy and people.
+                  </p>
+                  <p className="mb-4">
+                    At Engross Foundation, we are committed to professionalism, transparency, ethical practices, and quality implementation. We continuously strive to support vulnerable and marginalized communities while promoting inclusive growth and social transformation.
+                  </p>
+                  <p className="mb-5">
+                    We welcome partnerships, collaborations, volunteers, researchers, and changemakers who share our vision of building an inclusive, resilient, and sustainable society. Together, we can create positive and lasting change.
+                  </p>
+                  
+                  {/* Sign-off */}
+                  <div className="border-top border-light-subtle pt-4">
+                    <p className="mb-0 fw-bold text-custom-navy">With warm regards,</p>
+                    <p className="mb-0 text-custom-teal fw-semibold mt-1">Dr. Ashish Srivastava</p>
+                    <p className="small text-muted mb-0">Chief Functionary, Engross Foundation</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Core Team Grid Section */}
-      <section className="py-5 bg-white">
+      <section id="core-team" className="py-5 bg-white">
         <div className="container py-4">
           <div className="text-center mb-5">
             <span className="text-custom-teal fw-bold text-uppercase tracking-wider fs-7">Steering the Mission</span>
@@ -453,18 +578,18 @@ export default function LeadersPage() {
           <div className="row g-4">
             {coreTeam.map((member, i) => (
               <div key={i} className="col-12 col-md-6 col-lg-4">
-                <div className="core-team-card d-flex flex-column">
+                <div className="core-team-card d-flex flex-column shadow-sm">
                   {/* Accent Top Bar */}
-                  <div style={{ height: '6px', background: 'linear-gradient(to right, #0f2c59, #006666)' }}></div>
+                  <div className="core-team-accent-bar"></div>
 
                   {/* Card Body */}
                   <div className="p-4 flex-grow-1 d-flex flex-column">
                     
                     {/* Header Info: Photo + Name/Role */}
-                    <div className="d-flex align-items-center gap-3 mb-4">
+                    <div className="d-flex align-items-center gap-3 mb-2">
                       {member.img ? (
                         <div className="core-team-img-wrapper">
-                          <img src={member.img} alt={member.name} className="w-100 h-100 object-fit-cover" />
+                          <img src={member.img} alt={member.name} />
                         </div>
                       ) : (
                         <div className="core-team-initials">
@@ -472,20 +597,24 @@ export default function LeadersPage() {
                         </div>
                       )}
                       <div>
-                        <h4 className="h6 fw-bold text-dark mb-1 leading-tight">{member.name}</h4>
-                        <p className="small text-custom-teal fw-semibold mb-0">{member.role}</p>
-                        <p className="text-muted italic mb-0" style={{ fontSize: '0.75rem' }}>{member.subtitle}</p>
+                        <h4 className="h6 fw-bold text-custom-navy mb-1.5 leading-tight" style={{ fontSize: '1.05rem', letterSpacing: '-0.2px' }}>{member.name}</h4>
+                        <div className="mb-1">
+                          <span className="badge bg-custom-teal-light text-custom-teal px-2.5 py-1 rounded-pill" style={{ fontSize: '0.72rem', fontWeight: '700', letterSpacing: '0.1px', whiteSpace: 'normal', textAlign: 'left', display: 'inline-block' }}>
+                            {member.role}
+                          </span>
+                        </div>
+                        <p className="text-muted mb-0 fw-medium" style={{ fontSize: '0.75rem' }}>{member.subtitle}</p>
                       </div>
                     </div>
 
-                    <hr className="text-black-50 my-3" />
+                    <div className="core-team-divider"></div>
 
                     {/* Bio Bullet Points */}
                     <ul className="list-unstyled flex-grow-1 mb-0">
                       {member.details.map((detail, idx) => (
-                        <li key={idx} className="d-flex align-items-start gap-2.5 mb-3">
-                          <BsCheckCircleFill className="text-success mt-1 flex-shrink-0" style={{ fontSize: '0.9rem' }} />
-                          <span className="text-secondary" style={{ fontSize: '0.82rem', lineHeight: '1.4' }}>{detail}</span>
+                        <li key={idx} className="d-flex align-items-start gap-2 mb-2.5">
+                          <BsCheckCircleFill className="bio-bullet-icon" />
+                          <span className="text-secondary" style={{ fontSize: '0.82rem', lineHeight: '1.45', fontWeight: '400' }}>{detail}</span>
                         </li>
                       ))}
                     </ul>
@@ -499,7 +628,7 @@ export default function LeadersPage() {
       </section>
 
       {/* Support Team Container Section */}
-      <section className="py-5 bg-light border-top border-bottom border-light">
+      <section id="core-advisors" className="py-5 bg-light border-top border-bottom border-light">
         <div className="container py-3">
           
           {/* Support Team Box (Mockup Representation) */}
@@ -550,10 +679,10 @@ export default function LeadersPage() {
           </div>
 
           {/* Core Advisors / Consultants & Strengths Section */}
-          <div className="row g-4 mt-4">
+          <div className="row g-4 mt-4 ">
             
             {/* Core Advisors Column */}
-            <div className="col-12 col-lg-8">
+            <div className="col-12 ">
               <div className="section-header-bar">
                 CORE ADVISORS / CONSULTANTS
               </div>
@@ -599,7 +728,7 @@ export default function LeadersPage() {
             </div>
 
             {/* Our Strengths Column */}
-            <div className="col-12 col-lg-4">
+            {/* <div className="col-12 col-lg-4">
               <div className="section-header-bar">
                 OUR STRENGTHS
               </div>
@@ -613,7 +742,7 @@ export default function LeadersPage() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
           </div>
 

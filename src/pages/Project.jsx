@@ -361,7 +361,7 @@ export default function ProjectsPage() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
               { num: 10000, label: "Households Surveyed", suffix: "+" },
-              { num: 32, label: "States Covered", suffix: "" },
+              { num: 30, label: "States Covered", suffix: "" },
               { num: 5000, label: "Workers Assessed", suffix: "+" },
               { num: 4000, label: "Community Participants", suffix: "+" }
             ].map((stat, i) => (

@@ -136,24 +136,54 @@ export default function ContactPage() {
                   <h3 className="text-2xl font-bold text-gray-900">Registered Office</h3>
                 </div>
                 <p className="text-gray-600 leading-relaxed font-medium group-hover:text-gray-800 transition-colors">
-                  HN – 16 Satyam City,<br/>
-                  Dipti Khera, Para Ring Road,<br/>
-                  Lucknow – 226017<br/>
-                  <span className="text-sm text-gray-500 mt-2 block italic">Opp. RB Public School</span>
+                  Lucknow (Uttar Pradesh)
                 </p>
               </motion.div>
 
-              <motion.div whileHover={{ y: -5 }} className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg relative overflow-hidden group">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 group-hover:bg-indigo-100 transition-colors"></div>
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="bg-indigo-100 p-3 rounded-xl group-hover:bg-indigo-600 transition-colors duration-300"><Globe className="w-8 h-8 text-indigo-600 group-hover:text-white transition-colors" /></div>
-                  <h3 className="text-2xl font-bold text-gray-900">Head Office</h3>
+              <motion.div whileHover={{ y: -5 }} className="bg-white rounded-3xl p-8 border border-gray-200 shadow-lg relative overflow-hidden group flex flex-col justify-between">
+                <div>
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-indigo-50 rounded-bl-full -z-10 group-hover:bg-indigo-100 transition-colors"></div>
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="bg-indigo-100 p-3 rounded-xl group-hover:bg-indigo-600 transition-colors duration-300"><Globe className="w-8 h-8 text-indigo-600 group-hover:text-white transition-colors" /></div>
+                    <h3 className="text-2xl font-bold text-gray-900">Head Office & Associates</h3>
+                  </div>
+                  {/* <p className="text-gray-600 leading-relaxed font-medium group-hover:text-gray-800 transition-colors mb-6">
+                    207/14, Prakash Muhalla,<br/>
+                    East of Kailash,<br/>
+                    New Delhi – 110065
+                  </p> */}
                 </div>
-                <p className="text-gray-600 leading-relaxed font-medium group-hover:text-gray-800 transition-colors">
-                  207/14, Prakash Muhalla,<br/>
-                  East of Kailash,<br/>
-                  New Delhi – 110065
-                </p>
+                <div className="border-t border-gray-100 pt-4">
+                  <h4 className="text-sm font-bold text-indigo-600 mb-3 tracking-wider uppercase">Our Associates</h4>
+                  <div className="flex flex-wrap gap-1 max-h-[160px] overflow-y-auto pr-1 custom-scrollbar">
+                    {[
+                      "Bhopal (MP)",
+                      "Jaipur (Rajasthan)",
+                      "US Nagar (Uttarakhand)",
+                      "Hyderabad (Telangana & AP)",
+                      "Bengaluru (Karnataka)",
+                      "Chennai (TN)",
+                      "Jammu (J&K)",
+                      "Chandigarh (Punjab)",
+                      "Shimla (HP)",
+                      "Ahmedabad (Gujarat)",
+                      "Nasik & Mumbai (Maharashtra)",
+                      "Guwahati (Assam)",
+                      "Shillong (Meghalaya)",
+                      "Agartala (Tripura)",
+                      "Kolkata (WB)",
+                      "Kochi (Kerala)",
+                      "Bhubaneswar (Odisha)"
+                    ].map((associate, index) => (
+                      <span 
+                        key={index} 
+                        className="text-xs bg-indigo-50/70 hover:bg-indigo-600 hover:text-white text-indigo-700 font-semibold px-2.5 py-1 rounded-lg border border-indigo-100/50 transition-all duration-200 cursor-default"
+                      >
+                        {associate}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </motion.div>
             </div>
           </div>

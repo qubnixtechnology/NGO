@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, ArrowRight, ExternalLink, ShieldCheck, HeartHandsh
 import Facebook from '../assets/footer/Facebook.png';
 import Insta from '../assets/footer/Instagram.png';
 import Youtube from '../assets/footer/Youtube.png';
-import Logo from '../assets/image/logo.png';
+import Logo from '../assets/image/logo.jpeg';
 
 function Footer() {
   return (
@@ -120,14 +120,15 @@ function Footer() {
                 <MapPin className="w-5 h-5 text-red-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
                   <strong className="text-white block mb-1">Registered Office:</strong>
-                  <span className="text-slate-400">HN – 16 Satyam City, Dipti Khera, Para Ring Road, Lucknow - 226017</span>
+                  <span className="text-slate-400">Lucknow (Uttar Pradesh)</span>
                 </div>
               </li>
               <li className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-orange-400 mt-1 flex-shrink-0" />
                 <div className="text-sm">
-                  <strong className="text-white block mb-1">Head Office:</strong>
+                  <strong className="text-white block mb-1">Head Office & Associates:</strong>
                   <span className="text-slate-400">207/14, Prakash Muhalla, East of Kailash, New Delhi - 110065</span>
+                  <span className="text-slate-500 text-xs block mt-1">Associates across 17+ major cities in India</span>
                 </div>
               </li>
               <li className="flex items-center space-x-3">

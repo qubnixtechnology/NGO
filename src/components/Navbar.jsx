@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import Logo from '../assets/image/logo.png'
+import Logo from '../assets/image/logo.jpeg';
 
 const Navbar = (props) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -54,13 +54,13 @@ const Navbar = (props) => {
     { label: "Our Approach", to: "/about#our-approach" },
     { label: "Why It Matters", to: "/about#why-it-matters" },
     { label: "Recognition & Certifications", to: "/about#recognition-certifications" },
-    { label: "Our Leadership", to: "/about#our-leadership" },
+    
   ];
 
   const leadersSubItems = [
-    { label: "Director's Speaks", to: "/leaders#directors-speaks" },
-    { label: "Advisory Board", to: "/leaders#advisory-board" },
-    { label: "Executive Team", to: "/leaders#executive-team" },
+    { label: "Chief Functionary's Speaks", to: "/leaders#chief-functionary-speaks" },
+    { label: "OUR CORE TEAM", to: "/leaders#core-team" },
+    { label: "CORE ADVISORS / CONSULTANTS", to: "/leaders#core-advisors" },
     
   ];
 
@@ -150,7 +150,7 @@ const Navbar = (props) => {
                       : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50/50'
                   }`}
                 >
-                  Leaders
+                  Leadership
                   <svg className="w-3 h-3 xl:w-4 xl:h-4 transition-transform duration-300 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M19 9l-7 7-7-7"></path>
                   </svg>

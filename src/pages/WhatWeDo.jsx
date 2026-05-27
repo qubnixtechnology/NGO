@@ -9,7 +9,7 @@ import {
 
 // Hero & Intro static images
 import heroImg from '../assets/image/WebSite Photos/6.jpeg';
-import introImg from '../assets/image/WebSite Photos/7.jpeg';
+import introImg from '../assets/image/aboutus.jpeg';
 
 // Import new photos from src/assets/image/wedo
 import wedo1 from '../assets/image/wedo/wedo1.png';
@@ -19,7 +19,6 @@ import wedo4 from '../assets/image/wedo/wedo4.png';
 import wedo5 from '../assets/image/wedo/wedo5.png';
 import wedo6 from '../assets/image/wedo/wedo6.png';
 import wedo7 from '../assets/image/wedo/wedo7.png';
-import wedo8i from '../assets/image/wedo/wedo8i.png';
 import wedo8ii from '../assets/image/wedo/wedo8ii.png';
 import wedo9 from '../assets/image/wedo/wedo9.png';
 
@@ -162,7 +161,7 @@ export default function WhatWeDo() {
         "Eco-friendly practices", "Organic farming", 
         "Climate-conscious development", "Sustainable resource management", "Environmental awareness programmes"
       ],
-      images: [wedo8i, wedo8ii], // dual images for sector 8
+      image: wedo8ii,
       icon: <Leaf className="w-10 h-10 text-teal-600" />,
       colorTheme: "text-teal-600",
       bgTheme: "bg-teal-50",
@@ -241,7 +240,7 @@ export default function WhatWeDo() {
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-12">
                 {[
                   { num: 50, label: "Projects", suffix: "+" },
-                  { num: 20, label: "States", suffix: "+" },
+                  { num: 30, label: "States", suffix: "+" },
                   { num: 10000, label: "Survey Samples", suffix: "+" }
                 ].map((stat, i) => (
                   <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-blue-100 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 text-center">
@@ -335,7 +334,7 @@ export default function WhatWeDo() {
         <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvc3ZnPg==')] opacity-50"></div>
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Approach</h2>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">Approach</h2>
             <div className="w-24 h-1.5 bg-blue-400 mx-auto rounded-full"></div>
           </div>
           
